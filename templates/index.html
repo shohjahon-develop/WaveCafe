@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+            <!-- Drink Menu Page -->
+            <nav class="tm-black-bg tm-drinks-nav">
+              <ul>
+                <li>
+                  <a href="#" class="tm-tab-link active" data-id="cold">Iced Coffee</a>
+                </li>
+                <li>
+                  <a href="#" class="tm-tab-link" data-id="hot">Hot Coffee</a>
+                </li>
+                <li>
+                  <a href="#" class="tm-tab-link" data-id="juice">Fruit Juice</a>
+                </li>
+              </ul>
+            </nav>
+
+            <div id="cold" class="tm-tab-content">
+              <div class="tm-list">
+                {% for Ice in ice %}
+                <div class="tm-list-item">          
+                  <a href="{{Ice.get_absolute_url}}"><img src={{Ice.img.url}} alt="Image" class="tm-list-item-img"></a>
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">{{Ice.name}}<span class="tm-list-item-price">${{Ice.price}}</span></h3>
+                    <p class="tm-list-item-description">{{Ice.bio}}</p>
+                  </div>
+                </div>
+                {% endfor %}
+                                       
+              </div>
+            </div> 
+
+            <div id="hot" class="tm-tab-content">
+              <div class="tm-list">
+                {% for Hot in hots %}
+                <div class="tm-list-item">          
+                  <a href="{{Hot.get_absolute_url}}"><img src={{Hot.img.url}} alt="Image" class="tm-list-item-img"></a>
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">{{Hot.name}}<span class="tm-list-item-price">${{Hot.price}}</span></h3>
+                    <p class="tm-list-item-description">{{Hot.bio}}.</p>
+                  </div>
+                </div>
+                {% endfor %}
+                         
+              </div>
+            </div>
+
+            <div id="juice" class="tm-tab-content">
+              <div class="tm-list">
+                {% for Fruit in fruite %}
+                <div class="tm-list-item">          
+                  <a href="{{Fruit.get_absolute_url}}"><img src={{Fruit.img.url}} alt="Image" class="tm-list-item-img"></a>
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">{{Fruit.name}}<span class="tm-list-item-price">${{Fruit.price}}</span></h3>
+                    <p class="tm-list-item-description">{{Fruit.bio}}.</p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <!-- end Drink Menu Page -->
+          </div>
+
+          <!-- About Us Page -->
+          <div id="about" class="tm-page-content">
+            {% for About in abouts %}
+            <div class="tm-black-bg tm-mb-20 tm-about-box-1">              
+              <h2 class="tm-text-primary tm-about-header">{{About.name}}</h2>
+              <div class="tm-list-item tm-list-item-2">                
+                <a href="{{About.get_absolute_url}}"><img src={{About.img.url}} alt="Image" class="tm-list-item-img tm-list-item-img-big"></a>
+                <div class="tm-list-item-text-2">
+                  <p>{{About.bio}}</p>
+                </div>                
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- end About Us Page -->
+
+          <!-- Special Items Page -->
+          <div id="special" class="tm-page-content">
+            <div class="tm-special-items">
+              {% for Item in items %}
+              <div class="tm-black-bg tm-special-item">
+                <a href="{{Item.get_absolute_url}}"><img src={{Item.img.url}} alt="Image"></a>
+                <div class="tm-special-item-description">
+                  <h2 class="tm-text-primary tm-special-item-title">{{Item.name}}</h2>
+                  <p class="tm-special-item-text">{{Item.bio}}.</p>
+                </div>
+              </div>
+              {% endfor %}
+            </div>            
+          </div>
+          <!-- end Special Items Page -->
+
+          <!-- Contact Page -->
+          <div id="contact" class="tm-page-content">
+            <div class="tm-black-bg tm-contact-text-container">
+              <h2 class="tm-text-primary">Contact Wave</h2>
+              <p>Wave Cafe Template has a video background. You can use this layout for your websites. Please contact Tooplate's Facebook page. Tell your friends about our website.</p>
+            </div>
+            <div class="tm-black-bg tm-contact-form-container tm-align-right">
+              <form action="" method="POST" id="contact-form">{% csrf_token %}
+                <div class="tm-form-group">
+                  <input type="text" name="name" class="tm-form-control" placeholder="Name" required="required" />
+                </div>
+                <div class="tm-form-group">
+                  <input type="email" name="email" class="tm-form-control" placeholder="Email" required="required" />
+                </div>        
+                <div class="tm-form-group tm-mb-30">
+                  <textarea rows="6" name="message" class="tm-form-control" placeholder="Message" required="required"></textarea>
+                </div>        
+                <div>
+                  <button type="submit" class="tm-btn-primary tm-align-right">
+                    Yuborish
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- end Contact Page -->
+
+{% endblock content %}

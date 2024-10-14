@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+ <div class="tm-list-item">
+                  <img src={{hot.img.url}} alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">{{hot.name}}<span class="tm-list-item-price">${{hot.price}}</span></h3>
+                    <p class="tm-list-item-description">{{hot.bio}}.</p>
+                  </div>
+                </div>
+{% endblock content %}

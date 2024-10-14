@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Xush kelibsiz {{user.username}}</h3>
+<h2>Siz haqingizdagi malumotlar</h2>
+<label>Username:</label><input value="{{user.username}}" readonly>
+<label>Emailingiz:</label><input value="{{user.email}}" readonly>
+<label>Ismingiz:</label><input value="{{user.first_name}}" readonly>
+
+{% endblock content %}

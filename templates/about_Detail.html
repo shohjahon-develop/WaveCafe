@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="tm-black-bg tm-mb-20 tm-about-box-1">
+              <h2 class="tm-text-primary tm-about-header">{{about.name}}</h2>
+              <div class="tm-list-item tm-list-item-2">
+                <img src={{about.img.url}} alt="Image" class="tm-list-item-img tm-list-item-img-big">
+                <div class="tm-list-item-text-2">
+                  <p>{{about.bio}}</p>
+                </div>
+              </div>
+            </div>
+{% endblock content %}

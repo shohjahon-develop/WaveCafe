@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="tm-list-item">
+                  <img src={{ice.img.url}} alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">{{ice.name}}<span class="tm-list-item-price">${{ice.price}}</span></h3>
+                    <p class="tm-list-item-description">{{ice.bio}}</p>
+                  </div>
+                </div>
+                <div class="bg-dark border-inner text-center p-4">
+                            <h4 class="text-uppercase text-primary">{{ice.name}}</h4>
+                            <p class="text-white m-0">{{ice.bio}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% for Comment in comments %}
+              <div class="comments"style="padding:10px">
+                  <p class="font-weight-bold">
+                      {{ comment.user }}
+                      <span class="text-muted font-weight-normal">
+                          {{ comment.created_time }}
+
+                      </span>
+                  </p>
+                  {{ comment.body | linebreaks }}
+              </div>
+              {% endfor %}
+
+               <h3>Izoh qoldirish</h3>
+               <form method="post">{% csrf_token %}
+                   {{comment_form.as_p}}
+                   <button type="submit">Yuborish</button>
+               </form>
+{% endblock content %}
